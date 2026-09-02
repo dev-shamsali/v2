@@ -1,6 +1,9 @@
 import Image from "next/image";
-import markSrc from "@/public/brand/mark-transparent.png";
 
+/**
+ * Navbar/footer icon mark: the maroon &amp; gold VS mark, cropped transparent
+ * from the brand lockup. Works on both the beige and dark canvas.
+ */
 export function LogoMark({
   className,
   priority = false,
@@ -9,6 +12,13 @@ export function LogoMark({
   priority?: boolean;
 }) {
   return (
-    <Image src={markSrc} alt="VibeScript" priority={priority} className={`object-contain ${className ?? ""}`} />
+    <Image
+      src="/brand/vs-icon.png"
+      alt="VibeScript"
+      width={432}
+      height={236}
+      priority={priority}
+      className={`object-contain ${className ?? ""}`}
+    />
   );
 }

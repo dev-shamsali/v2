@@ -57,7 +57,10 @@ export function Contact() {
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:gap-8">
           <Reveal>
-            <h2 className="text-3xl font-grotesk font-extrabold tracking-tight sm:text-5xl">
+            <span className="inline-flex rounded-full border border-line px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-maroon-400">
+              Get in touch
+            </span>
+            <h2 className="mt-4 text-3xl font-grotesk font-extrabold tracking-tight sm:text-5xl">
               Let&apos;s build something that scales.
             </h2>
             <p className="mt-5 max-w-sm text-base leading-relaxed text-ink-dim">
@@ -69,18 +72,18 @@ export function Contact() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="flex items-center gap-3 text-sm text-ink transition-colors hover:text-crimson-300"
+                  className="flex items-center gap-3 text-sm text-ink transition-colors hover:text-maroon-300"
                 >
-                  <EnvelopeSimple size={18} className="text-crimson-400" />
+                  <EnvelopeSimple size={18} className="text-maroon-400" />
                   {site.email}
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${site.phoneHref}`}
-                  className="flex items-center gap-3 text-sm text-ink transition-colors hover:text-crimson-300"
+                  className="flex items-center gap-3 text-sm text-ink transition-colors hover:text-maroon-300"
                 >
-                  <Phone size={18} className="text-crimson-400" />
+                  <Phone size={18} className="text-maroon-400" />
                   {site.phone}
                 </a>
               </li>
@@ -89,21 +92,26 @@ export function Contact() {
                   href={site.social.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-ink transition-colors hover:text-crimson-300"
+                  className="flex items-center gap-3 text-sm text-ink transition-colors hover:text-maroon-300"
                 >
-                  <WhatsappLogo size={18} className="text-crimson-400" />
+                  <WhatsappLogo size={18} className="text-maroon-400" />
                   WhatsApp
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-ink-dim">
-                <MapPin size={18} className="text-crimson-400" />
+                <MapPin size={18} className="text-maroon-400" />
                 {site.locationShort}
               </li>
             </ul>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="flex flex-col gap-5 rounded-[1.75rem] bg-line/40 p-1.5"
+            >
+            <div className="flex flex-col gap-5 rounded-[1.4rem] bg-surface p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] sm:p-8">
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm font-medium text-ink">
                   Name
@@ -113,13 +121,13 @@ export function Contact() {
                   name="name"
                   type="text"
                   autoComplete="name"
-                  className="rounded-lg border border-line bg-surface px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-crimson-400 focus:outline-none focus:ring-2 focus:ring-crimson-400/30"
+                  className="rounded-lg border border-line bg-surface-raised px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-maroon-400 focus:outline-none focus:ring-2 focus:ring-maroon-400/30"
                   placeholder="Your name"
                   aria-invalid={Boolean(errors.name)}
                   aria-describedby={errors.name ? "name-error" : undefined}
                 />
                 {errors.name && (
-                  <p id="name-error" className="text-xs text-crimson-300">
+                  <p id="name-error" className="text-xs text-maroon-300">
                     {errors.name}
                   </p>
                 )}
@@ -134,13 +142,13 @@ export function Contact() {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  className="rounded-lg border border-line bg-surface px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-crimson-400 focus:outline-none focus:ring-2 focus:ring-crimson-400/30"
+                  className="rounded-lg border border-line bg-surface-raised px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-maroon-400 focus:outline-none focus:ring-2 focus:ring-maroon-400/30"
                   placeholder="you@company.com"
                   aria-invalid={Boolean(errors.email)}
                   aria-describedby={errors.email ? "email-error" : undefined}
                 />
                 {errors.email && (
-                  <p id="email-error" className="text-xs text-crimson-300">
+                  <p id="email-error" className="text-xs text-maroon-300">
                     {errors.email}
                   </p>
                 )}
@@ -154,13 +162,13 @@ export function Contact() {
                   id="message"
                   name="message"
                   rows={4}
-                  className="resize-none rounded-lg border border-line bg-surface px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-crimson-400 focus:outline-none focus:ring-2 focus:ring-crimson-400/30"
+                  className="resize-none rounded-lg border border-line bg-surface px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-maroon-400 focus:outline-none focus:ring-2 focus:ring-maroon-400/30"
                   placeholder="What are you looking to build?"
                   aria-invalid={Boolean(errors.message)}
                   aria-describedby={errors.message ? "message-error" : undefined}
                 />
                 {errors.message && (
-                  <p id="message-error" className="text-xs text-crimson-300">
+                  <p id="message-error" className="text-xs text-maroon-300">
                     {errors.message}
                   </p>
                 )}
@@ -168,15 +176,19 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="mt-2 inline-flex w-fit items-center justify-center rounded-full bg-crimson-400 px-6 py-3 text-sm font-medium text-silver-100 transition-colors hover:bg-crimson-300"
+                className="group mt-2 inline-flex w-fit items-center gap-3 rounded-full bg-maroon-400 py-2 pl-6 pr-2 text-sm font-medium text-beige-50 transition-shadow hover:shadow-[0_0_20px_rgba(168,32,64,0.4)]"
               >
                 Send message
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-beige-50/15 transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  ↗
+                </span>
               </button>
 
               <p role="status" aria-live="polite" className="text-xs text-ink-faint">
                 {status === "success" && "Opening your email client to finish sending."}
                 {status === "error" && "Check the highlighted fields and try again."}
               </p>
+              </div>
             </form>
           </Reveal>
         </div>

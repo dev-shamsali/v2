@@ -20,7 +20,7 @@ export function StatusStrip() {
             return (
               <Reveal key={item.label} as="li" delay={i * 0.06} y={12}>
                 <div className="flex items-center gap-3 px-1 py-5 lg:justify-center lg:px-6">
-                  <IconComponent size={18} weight="fill" className="shrink-0 text-crimson-400" />
+                  <IconComponent size={18} weight="fill" className="shrink-0 text-maroon-400" />
                   <span className="text-sm text-ink-dim">{item.label}</span>
                 </div>
               </Reveal>

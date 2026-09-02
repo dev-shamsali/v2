@@ -1,51 +1,93 @@
 @import "tailwindcss";
 
+/* ─── Colour tokens (Default = Beige/Light, matching the logo) ───────── */
 :root {
-  --color-canvas: #08080b;
-  --color-surface: #0e0e13;
-  --color-surface-raised: #15151d;
-  --color-line: #232330;
-  --color-ink: #f4f4f6;
-  --color-ink-dim: #a3a3ae;
-  --color-ink-faint: #6c6c78;
+  /* Beige canvas — matches the logo's background */
+  --color-canvas:        #f5ede4;
+  --color-surface:       #faf5ef;
+  --color-surface-raised:#fefcf9;
+  --color-line:          #e0cfc3;
+  --color-ink:           #1a0209;
+  --color-ink-dim:       #5a3040;
+  --color-ink-faint:     #8a6070;
 
-  --color-crimson-900: #3d0a1c;
-  --color-crimson-700: #6d0f31;
-  --color-crimson-500: #a41d47;
-  --color-crimson-400: #d8265a;
-  --color-crimson-300: #e23b6b;
+  /* Brand: maroon & gold from the VS logo */
+  --color-maroon-950: #0e0107;
+  --color-maroon-900: #2d0a14;
+  --color-maroon-700: #6b0f27;
+  --color-maroon-500: #8b1a35;
+  --color-maroon-400: #a82040;
+  --color-maroon-300: #c93058;
 
-  --color-silver-500: #c6c6cf;
-  --color-silver-300: #e4e4e9;
-  --color-silver-100: #f7f7f9;
+  --color-beige-200: #f5ede4;
+  --color-beige-100: #faf5ef;
+  --color-beige-50:  #fefcf9;
 
-  --nav-height: 4.25rem;
+  /* Gold accent (the tan stripe in the logo) */
+  --color-gold-400: #c9a97a;
+  --color-gold-300: #d8c09a;
+  /* Darker gold for text — gold-400 is too low-contrast to read as copy */
+  --color-gold-600: #8a6a3f;
+
+  /* Legacy crimson aliases */
+  --color-crimson-900: var(--color-maroon-900);
+  --color-crimson-700: var(--color-maroon-700);
+  --color-crimson-500: var(--color-maroon-500);
+  --color-crimson-400: var(--color-maroon-400);
+  --color-crimson-300: var(--color-maroon-300);
+
+  --color-silver-500: #b8a89a;
+  --color-silver-300: #d8c8bc;
+  --color-silver-100: #1a0209;
+
+  /* Heading ink — brand maroon in light, bright ink in dark (maroon-900 is unreadable on a dark canvas) */
+  --color-heading: var(--color-maroon-900);
+
+  --nav-height: 6.5rem;
 }
 
-[data-theme="light"] {
-  --color-canvas: #fafafa;
-  --color-surface: #ffffff;
-  --color-surface-raised: #f2f2f5;
-  --color-line: #e2e2e8;
-  --color-ink: #101014;
-  --color-ink-dim: #55555f;
-  --color-ink-faint: #85858f;
+/* Dark mode (opt-in via data-theme="dark") */
+[data-theme="dark"] {
+  --color-canvas:        #0d0608;
+  --color-surface:       #150a0d;
+  --color-surface-raised:#1e0f14;
+  --color-line:          #2e1820;
+  --color-ink:           #f5f0ed;
+  --color-ink-dim:       #b8a8a2;
+  --color-ink-faint:     #7a6560;
+  --color-heading:       var(--color-ink);
+  --color-gold-600:      var(--color-gold-400);
 }
 
 @theme inline {
-  --font-sans: var(--font-plus-jakarta);
-  --font-mono: var(--font-jetbrains-mono);
-  --font-brand: var(--font-michroma);
-  --font-grotesk: var(--font-bricolage), var(--font-plus-jakarta), sans-serif;
-  --font-editorial: var(--font-instrument-serif), serif;
+  --font-sans:     var(--font-plus-jakarta);
+  --font-mono:     var(--font-jetbrains-mono);
+  --font-brand:    var(--font-michroma);
+  --font-grotesk:  var(--font-bricolage), var(--font-plus-jakarta), sans-serif;
+  --font-editorial:var(--font-instrument-serif), serif;
 
-  --color-canvas: var(--color-canvas);
-  --color-surface: var(--color-surface);
-  --color-surface-raised: var(--color-surface-raised);
-  --color-line: var(--color-line);
-  --color-ink: var(--color-ink);
-  --color-ink-dim: var(--color-ink-dim);
-  --color-ink-faint: var(--color-ink-faint);
+  --color-canvas:        var(--color-canvas);
+  --color-surface:       var(--color-surface);
+  --color-surface-raised:var(--color-surface-raised);
+  --color-line:          var(--color-line);
+  --color-ink:           var(--color-ink);
+  --color-ink-dim:       var(--color-ink-dim);
+  --color-ink-faint:     var(--color-ink-faint);
+
+  --color-maroon-950: var(--color-maroon-950);
+  --color-maroon-900: var(--color-maroon-900);
+  --color-maroon-700: var(--color-maroon-700);
+  --color-maroon-500: var(--color-maroon-500);
+  --color-maroon-400: var(--color-maroon-400);
+  --color-maroon-300: var(--color-maroon-300);
+
+  --color-beige-200: var(--color-beige-200);
+  --color-beige-100: var(--color-beige-100);
+  --color-beige-50:  var(--color-beige-50);
+
+  --color-gold-400: var(--color-gold-400);
+  --color-gold-300: var(--color-gold-300);
+  --color-gold-600: var(--color-gold-600);
 
   --color-crimson-900: var(--color-crimson-900);
   --color-crimson-700: var(--color-crimson-700);
@@ -56,14 +98,18 @@
   --color-silver-500: var(--color-silver-500);
   --color-silver-300: var(--color-silver-300);
   --color-silver-100: var(--color-silver-100);
+
+  --color-heading: var(--color-heading);
 }
 
+/* ─── Base ───────────────────────────────────────────────────────────── */
 html {
-  color-scheme: dark;
+  color-scheme: light;
+  scroll-behavior: smooth;
 }
 
-html[data-theme="light"] {
-  color-scheme: light;
+html[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 body {
@@ -73,36 +119,112 @@ body {
 }
 
 ::selection {
-  background: var(--color-crimson-400);
-  color: var(--color-silver-100);
+  background: var(--color-maroon-400);
+  color: var(--color-beige-50);
 }
 
 * {
-  scrollbar-color: var(--color-crimson-700) var(--color-surface);
+  scrollbar-color: var(--color-maroon-700) var(--color-surface);
+  scrollbar-width: thin;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ─── Grain overlay ──────────────────────────────────────────────────── */
+.grain {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
 }
 
+/* ─── Typography helpers ─────────────────────────────────────────────── */
+.text-balance { text-wrap: balance; }
+
+/* ─── Scroll / float animation keyframes ─────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(1deg); }
+  66%       { transform: translateY(-6px) rotate(-0.5deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50%       { opacity: 0.5;  transform: scale(1.08); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-float      { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-shimmer    { animation: shimmer 3s linear infinite; }
+.animate-draw       { animation: draw-line 2s ease forwards; }
+.animate-morph      { animation: morph 8s ease-in-out infinite; }
+.animate-marquee    { animation: marquee 28s linear infinite; }
+
+/* ─── Spotlight border — cursor-tracked glow via --mx/--my custom props ── */
+.spotlight-border {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    var(--color-maroon-300) 0%,
+    var(--color-gold-400) 35%,
+    transparent 70%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.spotlight-border:hover::before { opacity: 1; }
+.spotlight-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--color-maroon-400) 14%, transparent) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.spotlight-border:hover::after { opacity: 1; }
+
+/* ─── Reduced-motion override ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-.grain {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-}
-
-.text-balance {
-  text-wrap: balance;
 }

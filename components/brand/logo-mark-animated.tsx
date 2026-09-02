@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import markSrc from "@/public/brand/mark-transparent.png";
+
+const logoSrc = "/brand/vs-icon.png";
 
 export function LogoMarkAnimated({ className }: { className?: string }) {
   const reduce = useReducedMotion();
@@ -22,8 +23,10 @@ export function LogoMarkAnimated({ className }: { className?: string }) {
         transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
       >
         <Image
-          src={markSrc}
+          src={logoSrc}
           alt="VibeScript"
+          width={400}
+          height={400}
           priority
           style={{ width: "100%", height: "100%", objectFit: "contain" }}
         />

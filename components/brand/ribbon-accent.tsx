@@ -33,16 +33,16 @@ export function RibbonAccent({
     >
       <defs>
         <linearGradient id={gA} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#f7f7f9" />
-          <stop offset="35%" stopColor="#e23b6b" />
-          <stop offset="70%" stopColor="#d8265a" />
-          <stop offset="100%" stopColor="#a41d47" />
+          <stop offset="0%" stopColor="#faf5ef" />
+          <stop offset="35%" stopColor="#c93058" />
+          <stop offset="70%" stopColor="#a82040" />
+          <stop offset="100%" stopColor="#6b0f27" />
         </linearGradient>
         <linearGradient id={gB} x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#a41d47" />
-          <stop offset="30%" stopColor="#d8265a" />
-          <stop offset="60%" stopColor="#e4e4e9" />
-          <stop offset="100%" stopColor="#e23b6b" />
+          <stop offset="0%" stopColor="#6b0f27" />
+          <stop offset="30%" stopColor="#a82040" />
+          <stop offset="60%" stopColor="#c9a97a" />
+          <stop offset="100%" stopColor="#c93058" />
         </linearGradient>
         <filter id={glow} x="-40%" y="-40%" width="180%" height="180%">
           <feGaussianBlur stdDeviation="6" />
@@ -90,8 +90,8 @@ export function RibbonAccent({
           strokeLinecap="round"
           opacity="0.7"
         />
-        <path d={ARM0} stroke="#f7f7f9" strokeWidth="4" fill="none" strokeLinecap="round" opacity="0.35" />
-        <path d={ARM2} stroke="#f7f7f9" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.3" />
+        <path d={ARM0} stroke="#faf5ef" strokeWidth="4" fill="none" strokeLinecap="round" opacity="0.35" />
+        <path d={ARM2} stroke="#faf5ef" strokeWidth="3" fill="none" strokeLinecap="round" opacity="0.3" />
       </g>
     </svg>
   );

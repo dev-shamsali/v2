@@ -88,11 +88,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08080b",
-  colorScheme: "dark light",
+  themeColor: "#f5ede4",
+  colorScheme: "light dark",
 };
 
-const themeInitScript = `(function(){try{if(localStorage.getItem("theme")==="light"){document.documentElement.setAttribute("data-theme","light")}}catch(e){}})();`;
+const themeInitScript = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"){document.documentElement.setAttribute("data-theme","dark")}}catch(e){}})();`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -100,8 +100,8 @@ const jsonLd = {
   name: site.name,
   description: site.description,
   url: site.url,
-  logo: `${site.url}/brand/mark.png`,
-  image: `${site.url}/brand/mark.png`,
+  logo: `${site.url}/brand/logo.png`,
+  image: `${site.url}/brand/logo.png`,
   email: site.email,
   telephone: site.phone,
   address: {
